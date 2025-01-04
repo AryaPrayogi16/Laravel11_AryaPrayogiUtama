@@ -94,6 +94,23 @@ git remote add origin https://github.com/AryaPrayogi16/arya-laravel11-docker-tem
 
 
 
+cd /path/to/DockerTemplate
+docker-compose up --build
+docker exec -it laravel_app bash
+composer create-project --prefer-dist laravel/laravel laravel-arya "11.*" --no-cache
+
+chmod -R 775 storage bootstrap/cache
+chown -R www-data:www-data storage bootstrap/cache
+chmod 775 database/database.sqlite
+chmod -R 775 database
+chown -R www-data:www-data database
+
+chmod 777 /var/www/html/laravel-arya/database/database.sqlite
+
+
+
+
+
 
 
 
