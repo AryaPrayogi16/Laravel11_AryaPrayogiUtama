@@ -27,6 +27,11 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Set working directory di dalam container ke /var/www/html
 WORKDIR /var/www/html
 
+RUN chmod -R 775 storage bootstrap/cache && \
+    chown -R www-data:www-data storage bootstrap/cache && \
+    chmod 777 /var/www/html/laravel-arya/database/database.sqlite
+
+
 # Perintah berikut dapat ditambahkan jika Anda ingin menjalankan perintah tertentu
 # seperti menginstall dependensi menggunakan Composer setelah container dibuat.
 # RUN composer install

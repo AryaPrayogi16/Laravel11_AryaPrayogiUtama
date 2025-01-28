@@ -14,15 +14,11 @@ docker exec -it laravel_node bash
 laravel_nginx: untuk mengonfigurasi file Nginx jika diperlukan (misalnya, default.conf).
 docker exec -it laravel_nginx bash
 
-B. Masuk ke direktori spesifik untuk menjalankan perintah artisan
-cd /var/www/html/laravel-arya
-
-C.
-
-
 1. Menjalankan Kontainer dengan Docker Compose
 Untuk memulai semua layanan yang didefinisikan dalam file docker-compose.yml:
+
 docker-compose up
+
 Tambahkan opsi -d untuk menjalankan di latar belakang:
 docker-compose up -d
 
@@ -69,7 +65,7 @@ composer create-project --prefer-dist laravel/laravel laravel-arya "11.*" --no-c
 rm -rf <nama_folder_proyek>
 
 10. Memasang Dependency yang Hilang
-ika kontainer membutuhkan alat seperti unzip, instal melalui:
+Jika kontainer membutuhkan alat seperti unzip, instal melalui:
 apt-get update && apt-get install -y unzip
 
 11. Melihat Semua Kontainer dan Statusnya
@@ -106,6 +102,8 @@ chmod -R 775 database
 chown -R www-data:www-data database
 
 chmod 777 /var/www/html/laravel-arya/database/database.sqlite
+
+
 
 
 

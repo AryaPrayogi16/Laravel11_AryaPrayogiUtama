@@ -28,7 +28,6 @@ cd laravel-docker-template
 Setelah meng-clone repository, buka cmd di dalam folder jalankan perintah berikut untuk membangun dan menjalankan container Docker:
 docker-compose up --build
 Perintah ini akan:
-
 Menggunakan file docker-compose.yml untuk membangun image Docker untuk PHP, Nginx, dan Node.js
 Membuat kontainer yang diperlukan dan menjalankan aplikasi Laravel
 
