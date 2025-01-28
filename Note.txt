@@ -1,0 +1,121 @@
+SQLite3
+Laravel 11
+node js 20
+php 8.3
+Nginx
+Tailwind 
+Alpine.JS
+
+A. Daftar Kontainer
+laravel_app: mengelola Laravel dan PHP di dalamnya.
+docker exec -it laravel_app bash
+laravel_node: menjalankan perintah Node.js seperti npm run dev atau yarn dev.
+docker exec -it laravel_node bash
+laravel_nginx: untuk mengonfigurasi file Nginx jika diperlukan (misalnya, default.conf).
+docker exec -it laravel_nginx bash
+
+1. Menjalankan Kontainer dengan Docker Compose
+Untuk memulai semua layanan yang didefinisikan dalam file docker-compose.yml:
+
+docker-compose up
+
+Tambahkan opsi -d untuk menjalankan di latar belakang:
+docker-compose up -d
+
+2. Menghentikan Kontainer
+untuk kontainer tertentu:
+docker stop <nama_kontainer>
+
+3. Menghapus Kontainer
+docker-compose down   # Menghentikan dan menghapus kontainer
+docker-compose down -v # Menghentikan, menghapus kontainer, dan menghapus volume
+Untuk menghapus kontainer tertentu:
+docker rm <nama_kontainer>
+
+4. Memperbaiki Masalah Orphan Containers
+Jika terdapat orphan container:
+docker-compose up --remove-orphans
+
+5. Melihat Log Kontainer
+Untuk memantau log kontainer:
+docker logs <nama_kontainer>
+Untuk mengikuti log secara real-time:
+docker logs -f <nama_kontainer>
+
+6. Masuk ke Dalam Kontainer
+Untuk masuk ke dalam kontainer (akses terminal):
+docker exec -it <nama_kontainer> bash
+
+7. Memeriksa Versi 
+php -v
+docker --version
+docker version
+
+8. Membuat Proyek Laravel
+composer create-project --prefer-dist laravel/laravel laravel-arya
+composer create-project --prefer-dist laravel/laravel laravel-arya "11.*"
+composer create-project --prefer-dist laravel/laravel laravel-arya "11.*" --timeout=600
+
+opsi --no-cache untuk menghindari data yang tidak valid
+
+composer create-project --prefer-dist laravel/laravel laravel-arya "11.*" --no-cache
+
+
+9. Menghapus Proyek Laravel yang Gagal
+rm -rf <nama_folder_proyek>
+
+10. Memasang Dependency yang Hilang
+Jika kontainer membutuhkan alat seperti unzip, instal melalui:
+apt-get update && apt-get install -y unzip
+
+11. Melihat Semua Kontainer dan Statusnya
+docker ps -a
+
+
+composer require laravel/telescope --dev
+php artisan telescope:install
+php artisan migrate
+php artisan telescope:publish
+
+Pastikan DB didesuaikan:
+DB_CONNECTION=sqlite
+# DB_HOST=127.0.0.1
+# DB_PORT=3306
+DB_DATABASE=/var/www/html/laravel-arya/database/database.sqlite
+# DB_USERNAME=root
+# DB_PASSWORD=
+
+git remote add origin https://github.com/AryaPrayogi16/arya-laravel11-docker-template.git
+
+
+
+
+cd /path/to/DockerTemplate
+docker-compose up --build
+docker exec -it laravel_app bash
+composer create-project --prefer-dist laravel/laravel laravel-arya "11.*" --no-cache
+
+chmod -R 775 storage bootstrap/cache
+chown -R www-data:www-data storage bootstrap/cache
+chmod 775 database/database.sqlite
+chmod -R 775 database
+chown -R www-data:www-data database
+
+chmod 777 /var/www/html/laravel-arya/database/database.sqlite
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

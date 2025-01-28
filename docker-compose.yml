@@ -1,0 +1,39 @@
+services:
+  app:
+    build:
+      context: ./docker/php # Menggunakan Dockerfile dari folder docker/php
+    volumes:
+      - ./src/laravel-arya:/var/www/html
+    working_dir: /var/www/html
+    container_name: laravel_app
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+    networks:
+      - laravel
+
+  nginx:
+    image: nginx:latest # Menggunakan image nginx:latest dari Docker Hub
+    ports:
+      - "8000:80"
+    volumes:
+      - ./src/laravel-arya:/var/www/html
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    container_name: laravel_nginx
+    networks:
+      - laravel
+
+  node:
+    build:
+      context: ./docker/node  # Menggunakan Dockerfile dari folder docker/node
+    volumes:
+      - ./src/laravel-arya:/var/www/html
+    working_dir: /var/www/html
+    container_name: laravel_node
+    networks:
+      - laravel
+
+
+networks:
+  laravel:
+    driver: bridge

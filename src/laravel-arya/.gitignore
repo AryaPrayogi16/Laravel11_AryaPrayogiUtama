@@ -1,0 +1,15 @@
+# Node.js dependencies
+/node_modules
+
+# Composer dependencies
+/vendor
+
+# Laravel-specific files
+/storage/logs
+/storage/framework/cache
+/storage/framework/sessions
+/storage/framework/vgitiews
+/bootstrap/cache/*.php
+
+# PHPUnit cache
+.phpunit.result.cache
