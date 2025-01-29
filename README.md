@@ -22,7 +22,6 @@ Clone proyek ini menggunakan Git:
 
 ```bash
 git clone https://github.com/AryaPrayogi16/arya-laravel11-docker-template.git
-cd laravel-docker-template
 
 ### 2. Menjalankan Aplikasi dengan Docker
 Setelah meng-clone repository, buka cmd di dalam folder jalankan perintah berikut untuk membangun dan menjalankan container Docker:
