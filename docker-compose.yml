@@ -24,14 +24,15 @@ services:
       - laravel
 
   node:
-    build:
-      context: ./docker/node  # Menggunakan Dockerfile dari folder docker/node
+    image: node:22
     volumes:
       - ./src/laravel-arya:/var/www/html
     working_dir: /var/www/html
     container_name: laravel_node
     networks:
       - laravel
+    command: ["tail", "-f", "/dev/null"]
+
 
 
 networks:
