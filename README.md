@@ -11,8 +11,8 @@ Proyek ini menggunakan:
 
 ## Prasyarat
 
-Sebelum mulai, pastikan memiliki hal berikut terpasang:
-- [Docker](https://www.docker.com/products/docker-desktop) (termasuk Docker Compose)
+Sebelum mulai, pastikan telah menginstall docker:
+- [Docker](https://www.docker.com/products/docker-desktop) 
 
 ## Cara Menggunakan
 
@@ -25,7 +25,9 @@ git clone https://github.com/AryaPrayogi16/arya-laravel11-docker-template.git
 
 ### 2. Menjalankan Aplikasi dengan Docker
 Setelah meng-clone repository, buka cmd di dalam folder jalankan perintah berikut untuk membangun dan menjalankan container Docker:
-docker-compose up --build
+
+"docker-compose up --build"
+
 Perintah ini akan:
 Menggunakan file docker-compose.yml untuk membangun image Docker untuk PHP, Nginx, dan Node.js
 Membuat kontainer yang diperlukan dan menjalankan aplikasi Laravel
@@ -35,12 +37,11 @@ Setelah proses build selesai, buka browser dan akses aplikasi Laravel melalui UR
 http://localhost:8000
 
 ### 4. Mengelola Dependensi PHP & Node.js
-Jika perlu mengelola dependensi PHP atau Node.js di dalam container, kamu bisa masuk ke container menggunakan perintah berikut:
+Jika perlu mengelola dependensi PHP atau Node.js di dalam container, masuk ke container menggunakan perintah berikut:
 Untuk PHP (Laravel):
 docker exec -it laravel_app bash
 Untuk Node.js:
 docker exec -it laravel_node bash
-Setelah masuk ke container, kamu bisa menjalankan perintah seperti composer install atau npm install jika diperlukan.
 
 Dibuat dan disediakan oleh:
 ARYA PRAYOGI UTAMA
