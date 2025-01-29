@@ -26,6 +26,7 @@ git clone https://github.com/AryaPrayogi16/arya-laravel11-docker-template.git
 ### 2. Menjalankan Aplikasi dengan Docker
 Setelah meng-clone repository, buka cmd di dalam folder jalankan perintah berikut untuk membangun dan menjalankan container Docker:
 
+"docker-compose up --build"
 
 Perintah ini akan:
 Menggunakan file docker-compose.yml untuk membangun image Docker untuk PHP, Nginx, dan Node.js
