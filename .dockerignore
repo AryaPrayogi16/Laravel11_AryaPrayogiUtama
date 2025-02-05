@@ -1,0 +1,6 @@
+.git
+src/laravel-arya/node_modules
+*.log
+.DS_Store
+Thumbs.db
+Get-DirectoryTree.ps1

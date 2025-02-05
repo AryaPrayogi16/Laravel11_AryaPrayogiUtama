@@ -1,0 +1,48 @@
+# ================= Stage 1: Build Stage =================
+FROM php:8.3-fpm AS builder
+
+# Set working directory
+WORKDIR /var/www/html
+
+# Install system dependencies dan ekstensi yang dibutuhkan
+RUN apt-get update && apt-get install -y \
+    sqlite3 libsqlite3-dev \
+    curl zip unzip git \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Install PHP extensions yang diperlukan (contoh: PDO SQLite)
+RUN docker-php-ext-install pdo pdo_sqlite
+
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Salin file composer untuk menginstall dependensi PHP terlebih dahulu
+COPY src/laravel-arya/composer.json src/laravel-arya/composer.lock ./
+
+# Salin seluruh kode Laravel lebih dulu agar artisan tersedia
+COPY src/laravel-arya/ /var/www/html
+
+# Kemudian baru jalankan composer install
+RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
+
+# Pastikan folder storage dan bootstrap/cache memiliki izin yang tepat (opsional, bisa juga dikerjakan di stage final)
+RUN chmod -R 775 storage bootstrap/cache
+
+# ================= Stage 2: Final Stage =================
+FROM php:8.3-fpm
+
+# Set working directory
+WORKDIR /var/www/html
+
+# Salin hasil build dari stage builder
+COPY --from=builder /var/www/html /var/www/html
+
+# Atur kepemilikan dan izin yang diperlukan
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 775 storage bootstrap/cache
+
+# Expose port 9000 (PHP-FPM)
+EXPOSE 9000
+
+# Jalankan PHP-FPM sebagai proses utama
+CMD ["php-fpm"]

@@ -1,2 +1,28 @@
-docker/
-docker-compose.yml
+# Laravel
+src/laravel-arya/vendor
+src/laravel-arya/public/storage
+src/laravel-arya/storage/*.key
+src/laravel-arya/storage/oauth-private.key
+src/laravel-arya/storage/oauth-public.key
+src/laravel-arya/storage/debugbar
+src/laravel-arya/storage/framework/cache
+src/laravel-arya/storage/framework/sessions
+src/laravel-arya/storage/framework/views
+src/laravel-arya/storage/logs
+src/laravel-arya/bootstrap/cache
+
+# Environment files
+src/laravel-arya/.env
+src\laravel-arya\package-lock.json
+
+# Logs and system files
+*.log
+*.cache
+*.pid
+*.seed
+*.swp
+*.swo
+*.DS_Store
+Thumbs.db
+
+src/laravel-arya/node_modules
