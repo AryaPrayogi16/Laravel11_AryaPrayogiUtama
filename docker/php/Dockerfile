@@ -1,6 +1,9 @@
 # Menggunakan PHP 8.3 FPM sebagai base image untuk menjalankan aplikasi Laravel
 FROM php:8.3-fpm
 
+
+# Set working directory di dalam container ke /var/www/html
+WORKDIR /var/www/html
 # Install SQLite3 dan library yang dibutuhkan
 RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev \
     # Membersihkan cache apt untuk mengurangi ukuran image
@@ -23,11 +26,11 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
 # Install Composer untuk manajemen dependensi PHP
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Set working directory di dalam container ke /var/www/html
-WORKDIR /var/www/html
+# Salin seluruh kode Laravel lebih dulu agar artisan tersedia
+COPY src/laravel-arya/ /var/www/html
 
 # Kemudian baru jalankan composer install
-RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
+RUN composer install --no-dev --optimize-autoloader
 
 
 # Perintah berikut dapat ditambahkan jika Anda ingin menjalankan perintah tertentu
