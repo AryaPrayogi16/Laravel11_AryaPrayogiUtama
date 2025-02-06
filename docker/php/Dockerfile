@@ -26,6 +26,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Set working directory di dalam container ke /var/www/html
 WORKDIR /var/www/html
 
+# Kemudian baru jalankan composer install
+RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
+
 
 # Perintah berikut dapat ditambahkan jika Anda ingin menjalankan perintah tertentu
 # seperti menginstall dependensi menggunakan Composer setelah container dibuat.
