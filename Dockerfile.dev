@@ -36,6 +36,7 @@ WORKDIR /var/www/html
 
 # Salin hasil build dari stage builder
 COPY --from=builder /var/www/html /var/www/html
+COPY --from=builder /var/www/html/vendor /var/www/html/vendor
 
 # Atur kepemilikan dan izin yang diperlukan
 RUN chown -R www-data:www-data /var/www/html \

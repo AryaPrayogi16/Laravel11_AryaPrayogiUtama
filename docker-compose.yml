@@ -1,9 +1,11 @@
 services:
   app:
     build:
-      context: ./docker/php # Menggunakan Dockerfile dari folder docker/php
+      context: . 
+      dockerfile: Dockerfile.dev
     volumes:
       - ./src/laravel-arya:/var/www/html
+      - /var/www/html/vendor:/var/www/html/vendor
     working_dir: /var/www/html
     container_name: laravel_app
     environment:
@@ -25,13 +27,16 @@ services:
 
   node:
     build:
-      context: ./docker/node
-      dockerfile: Dockerfile.node  # Gunakan Dockerfile.node yang telah Anda buat
+      context: .
+      dockerfile: Dockerfile.node  # Gunakan Dockerfile khusus Node.js
+    volumes:
+      - ./src/laravel-arya:/var/www/html  # Volume untuk source code Laravel
+      - ./src/laravel-arya/node_modules:/var/www/html/node_modules  
     working_dir: /var/www/html
     container_name: laravel_node
     networks:
       - laravel
-
+    command: ["tail", "-f", "/dev/null"]
 
 
 networks:
