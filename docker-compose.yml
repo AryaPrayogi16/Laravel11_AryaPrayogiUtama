@@ -25,7 +25,7 @@ services:
 
   node:
     build:
-      context: ./docker/node            # Build context diambil dari root proyek, sesuaikan jika perlu
+      context: ./docker/node
       dockerfile: Dockerfile.node  # Gunakan Dockerfile.node yang telah Anda buat
     working_dir: /var/www/html
     container_name: laravel_node
