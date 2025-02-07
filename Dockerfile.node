@@ -1,5 +1,5 @@
 # Menggunakan Node.js 22 sebagai base image
-FROM node:22-alpine
+FROM node:22
 
 # Set working directory di dalam container
 WORKDIR /var/www/html
@@ -8,7 +8,8 @@ WORKDIR /var/www/html
 COPY src/laravel-arya/package*.json ./
 
 # Jalankan npm install
-RUN npm install  # Tambahkan flag ini jika ada dependency yang bermasalah
+RUN npm install --legacy-peer-deps  
+#Tambahkan flag ini jika ada dependency yang bermasalah
 
 # Copy seluruh source code (kecuali node_modules)
 COPY src/laravel-arya/ ./
