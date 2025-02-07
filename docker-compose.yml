@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile.dev
     volumes:
       - ./src/laravel-arya:/var/www/html
-      - /var/www/html/vendor:/var/www/html/vendor
+      - /var/www/html/vendor
     working_dir: /var/www/html
     container_name: laravel_app
     environment:
@@ -30,8 +30,8 @@ services:
       context: .
       dockerfile: Dockerfile.node  # Gunakan Dockerfile khusus Node.js
     volumes:
-      - ./src/laravel-arya:/var/www/html  # Volume untuk source code Laravel
-      - ./src/laravel-arya/node_modules:/var/www/html/node_modules  
+      - ./src/laravel-arya:/var/www/html
+      - /var/www/html/node_modules
     working_dir: /var/www/html
     container_name: laravel_node
     networks:
