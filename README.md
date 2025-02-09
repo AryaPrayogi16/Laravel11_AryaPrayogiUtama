@@ -19,15 +19,15 @@ Sebelum mulai, pastikan telah menginstall docker:
 ### 1. Clone Repository
 
 Clone proyek ini menggunakan Git:
-<pre> ```bash
+```bash
 git clone https://github.com/AryaPrayogi16/Laravel11_Tailwind_Docker_BlogWebsite.git
-``` </pre>
+``` 
 
 ### 2. Menjalankan Aplikasi dengan Docker
 Setelah meng-clone repository, buka cmd di dalam folder jalankan perintah berikut untuk membangun dan menjalankan container Docker:
-<pre> ```bash
+```bash
 Docker compose up --build
-``` </pre>
+```
 
 
 Perintah ini akan:
@@ -41,13 +41,13 @@ Setelah proses build selesai, buka browser dan akses halaman web melalui URL:
 ### 4. Mengelola Dependensi PHP & Node.js
 Jika perlu mengelola dependensi PHP atau Node.js di dalam container, masuk ke container menggunakan perintah berikut:
 Untuk PHP (Laravel):
-<pre> ```bash
+```bash
 docker exec -it laravel_app bash
-``` </pre>
+```
 Untuk Node.js:
-<pre> ```bash
+```bash
 docker exec -it laravel_node bash
-``` </pre>
+```
 
 Dibuat dan disediakan oleh:
 ARYA PRAYOGI UTAMA
