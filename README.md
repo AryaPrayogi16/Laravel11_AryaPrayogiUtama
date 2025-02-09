@@ -1,37 +1,38 @@
 # arya-laravel11-docker-template
 
-Ini adalah template proyek Laravel yang sudah terkonfigurasi dengan **Docker**, siap untuk langsung digunakan.
+Ini adalah template proyek Laravel yang sudah terintegrasi dengan **Docker**, siap untuk langsung digunakan.
 
 Proyek ini menggunakan:
-- **Laravel** untuk aplikasi PHP
-- **Nginx** sebagai web server
-- **PHP 8.3 FPM** untuk menjalankan aplikasi Laravel
-- **SQLite** untuk database
-- **Node.js** untuk pengelolaan dependensi frontend
+- **Laravel 11** 
+- **Nginx** 
+- **PHP 8.3 FPM** 
+- **SQLite** 
+- **Node.js** 
 
 ## Prasyarat
 
 Sebelum mulai, pastikan telah menginstall docker:
-- [Docker](https://www.docker.com/products/docker-desktop) 
+- [Docker](https://docs.docker.com/desktop/setup/install/windows-install/) 
 
-## Cara Menggunakan
+## Cara Menjalankan
 
 ### 1. Clone Repository
 
 Clone proyek ini menggunakan Git:
 
 ```bash
-git clone https://github.com/AryaPrayogi16/arya-laravel11-docker-template.git
+git clone https://github.com/AryaPrayogi16/Laravel11_Tailwind_Docker_BlogWebsite.git
 
 ### 2. Menjalankan Aplikasi dengan Docker
 Setelah meng-clone repository, buka cmd di dalam folder jalankan perintah berikut untuk membangun dan menjalankan container Docker:
+Docker compose up --build
 
 Perintah ini akan:
 Menggunakan file docker-compose.yml untuk membangun image Docker untuk PHP, Nginx, dan Node.js
-Membuat kontainer yang diperlukan dan menjalankan aplikasi Laravel
+serta membuat kontainer yang diperlukan 
 
-### 3. Akses Aplikasi
-Setelah proses build selesai, buka browser dan akses aplikasi Laravel melalui URL:
+### 3. Akses web
+Setelah proses build selesai, buka browser dan akses halaman web melalui URL:
 http://localhost:8000
 
 ### 4. Mengelola Dependensi PHP & Node.js
