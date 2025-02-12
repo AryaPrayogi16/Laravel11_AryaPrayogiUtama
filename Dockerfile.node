@@ -1,5 +1,5 @@
 # Menggunakan Node.js 22 sebagai base image
-FROM node:22
+FROM node:22-alpine
 
 # Set working directory di dalam container
 WORKDIR /var/www/html

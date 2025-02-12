@@ -34,6 +34,8 @@ Perintah ini akan:
 Menggunakan file docker-compose.yml untuk membangun image Docker untuk PHP, Nginx, dan Node.js
 serta membuat kontainer yang diperlukan 
 
+estimasi build -+ 20menit
+
 ### 3. Akses web
 Setelah proses build selesai, buka browser dan akses halaman web melalui URL:
 [http://localhost:8000](http://localhost:8000) 
